@@ -12,15 +12,19 @@ import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
     private EditText emailText, passText;
-    private Button login;
+    private Button login, signup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //assign
         emailText = (EditText) findViewById(R.id.inputEmail);
         passText = (EditText) findViewById(R.id.inputPass);
         login = findViewById(R.id.btnLogin);
+        signup = findViewById(R.id.btnSign);
+
+        //login button
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,12 +37,24 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
+
+        //signup button
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSignUp();
+            }
+        });
     }
     public void wrongAcc(){
         Toast.makeText(Login.this, "Wrong Email or Pass", Toast.LENGTH_LONG).show();
     }
+    public  void openSignUp(){
+        Intent intent = new Intent(this, SignUp.class);
+        startActivity(intent);
+    }
     public void openAppMain(){
-        Intent intent = new Intent(this, AppMain.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }

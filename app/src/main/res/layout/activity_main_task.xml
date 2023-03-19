@@ -13,6 +13,7 @@
         android:ems="10"
         android:hint="00:00"
         android:inputType="time"
+        android:minHeight="48dp"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

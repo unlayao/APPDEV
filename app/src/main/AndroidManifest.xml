@@ -12,7 +12,7 @@
         android:theme="@style/Theme.TasKing"
         tools:targetApi="31">
         <activity
-            android:name=".AppMain"
+            android:name=".SignUp"
             android:exported="false" />
         <activity
             android:name=".Login"

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "631970635953",
+    "project_id": "tasking-d4b24",
+    "storage_bucket": "tasking-d4b24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:631970635953:android:d1338ceef7b8869a79c290",
+        "android_client_info": {
+          "package_name": "com.example.tasking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "631970635953-9qsmbs976643jb08d4rou9aq2eden0ud.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8sulsJctTq-ogbFM0QUG_W9B-xxxqchI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "631970635953-9qsmbs976643jb08d4rou9aq2eden0ud.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,4 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".SignUp">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SignUp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.074" />
+
+    <EditText
+        android:id="@+id/inputSEmail"
+        android:layout_width="342dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/inputSUser"
+        app:layout_constraintStart_toStartOf="@+id/inputSUser"
+        app:layout_constraintTop_toBottomOf="@+id/inputSUser" />
+
+    <EditText
+        android:id="@+id/inputSPass"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/inputSEmail"
+        app:layout_constraintStart_toStartOf="@+id/inputSEmail"
+        app:layout_constraintTop_toBottomOf="@+id/inputSEmail" />
+
+    <EditText
+        android:id="@+id/checkPass"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/inputSPass"
+        app:layout_constraintStart_toStartOf="@+id/inputSPass"
+        app:layout_constraintTop_toBottomOf="@+id/inputSPass" />
+
+    <EditText
+        android:id="@+id/inputSUser"
+        android:layout_width="342dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="128dp"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="SignUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkPass" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

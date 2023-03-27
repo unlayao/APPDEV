@@ -69,5 +69,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.565" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="170dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/focus_on_task_aims_to_improve_your_study__planning_skills__time_management_skills__and__ability_to_manage_distraction_and_control_of__your_time__it_also_helps_you_increase_your__productivity_and_accountability_" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

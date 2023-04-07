@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".MainTask">
 
-    <TextView
+    <EditText
         android:id="@+id/editTextTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:editable="true"
         android:ems="10"
-        android:hint="00:00"
         android:inputType="time"
         android:minHeight="48dp"
         android:textAlignment="center"
@@ -50,14 +50,5 @@
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints"
         tools:visibility="invisible" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/timercircle"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="83dp"
-        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

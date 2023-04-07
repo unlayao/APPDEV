@@ -6,16 +6,17 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Locale;
 
 public class MainTask extends AppCompatActivity {
     // time will start in milliseconds
-    private static final long START_TIME_IN_MS = 600000;
-
+    private long START_TIME_IN_MS;
+    private EditText tempTime;
     // variables for them time
-    private TextView mTextViewCountDown;
+    //private TextView mTextViewCountDown;
     private Button mButtonStartPause;
     private Button mButtonReset;
 
@@ -23,16 +24,15 @@ public class MainTask extends AppCompatActivity {
 
     private boolean mTimerRunning;
 
-    private long mTimeLeftInMS = START_TIME_IN_MS;
+    private long mTimeLeftInMS;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_task);
-
-        mTextViewCountDown = (TextView) findViewById(R.id.editTextTime);
-
+        tempTime = (EditText) findViewById(R.id.editTextTime);
+        //mTextViewCountDown = (TextView) findViewById(R.id.editTextTime);
         mButtonStartPause = (Button) findViewById(R.id.btnStartTime_PauseTime);
         mButtonReset = (Button) findViewById(R.id.resetButton);
 
@@ -40,9 +40,18 @@ public class MainTask extends AppCompatActivity {
         mButtonStartPause.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                /*tempTime.setEnabled(false);
+                long temporaryTime = 80000;
+                START_TIME_IN_MS =  temporaryTime;
+                mTimeLeftInMS = START_TIME_IN_MS;*/
+
                 if(mTimerRunning){
                     pauseTimer();
                 } else {
+                    tempTime.setEnabled(false);
+                    String input = tempTime.getText().toString();
+                    long millisInput = Long.parseLong(input) * 60000;
+                    setTime(millisInput);
                     startTimer();
                 }
             }
@@ -59,8 +68,17 @@ public class MainTask extends AppCompatActivity {
         updateCountDownText();
     }
 
+
+    private void setTime(long milliseconds){
+        START_TIME_IN_MS = milliseconds;
+        resetTimer();
+
+    }
+
     // Method for when Timer is starting
     private void startTimer(){
+        //tempTime = (EditText) findViewById(R.id.editTextTime);
+
         mTimer = new CountDownTimer(mTimeLeftInMS, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -92,6 +110,8 @@ public class MainTask extends AppCompatActivity {
 
     // Method when Timer will reset
     private void resetTimer(){
+        tempTime.setEnabled(true);
+        tempTime.setText("");
         mTimeLeftInMS = START_TIME_IN_MS;
         updateCountDownText();
         mButtonReset.setVisibility(View.INVISIBLE);
@@ -103,8 +123,8 @@ public class MainTask extends AppCompatActivity {
         int minutes = (int) (mTimeLeftInMS / 1000) / 60;
         int seconds = (int) (mTimeLeftInMS / 1000) % 60;
 
-        String timeLeftFormatted = String.format(Locale.getDefault(),"%02d:%02d", minutes, seconds);
+        String timeLeftFormatted = String.format(Locale.getDefault(),"%02d%02d", minutes, seconds);
 
-        mTextViewCountDown.setText(timeLeftFormatted);
+        tempTime.setText(timeLeftFormatted);
     }
 }

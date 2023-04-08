@@ -55,9 +55,10 @@
 
     <ProgressBar
         android:id="@+id/timerBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="333dp"
-        android:layout_height="15dp"
+        android:indeterminateOnly="false"
+        android:progressDrawable="@drawable/circle"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         app:layout_constraintBottom_toTopOf="@+id/editTextTime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

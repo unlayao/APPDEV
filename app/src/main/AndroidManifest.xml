@@ -21,6 +21,9 @@
             android:name=".Login"
             android:exported="false" />
         <activity
+            android:name=".burger"
+            android:exported="true"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

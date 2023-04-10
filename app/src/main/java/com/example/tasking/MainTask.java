@@ -2,6 +2,7 @@ package com.example.tasking;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -47,12 +48,15 @@ public class MainTask extends AppCompatActivity {
     private Spinner spinner;
     private String spinnerdata;
 
-
+    private Button Burger;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //built in
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_task);
+        //burger
+        Burger = findViewById(R.id.burgerexample);
+        Burger.setOnClickListener(v -> openBurger());
         //main timer
         tempTime = findViewById(R.id.editTextTime);
         //takes input from user
@@ -67,6 +71,7 @@ public class MainTask extends AppCompatActivity {
         spinner = findViewById(R.id.spinner);
         //Click button will start or pause
         tempTime.setVisibility(View.INVISIBLE);
+
         mButtonStartPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -197,5 +202,10 @@ public class MainTask extends AppCompatActivity {
         int seconds = (int) (mTimeLeftInMS / 1000) % 60;
         String timeLeftFormatted = String.format(Locale.getDefault(),"%02d:%02d", minutes, seconds);
         tempTime.setText(timeLeftFormatted);
+
+    }
+    public void openBurger(){
+        Intent intent = new Intent(this, burger.class);
+        startActivity(intent);
     }
 }

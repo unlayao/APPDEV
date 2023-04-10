@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         getStarted.setOnClickListener(v -> openLogin());
     }
     public void openLogin(){
-        Intent intent = new Intent(this, MainTask.class);
+        Intent intent = new Intent(this, Login.class);
         startActivity(intent);
     }
 }

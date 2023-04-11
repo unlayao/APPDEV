@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:title="Home"
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            />
+                <item
+                    android:id="@+id/nav_profile"
+                    android:icon="@drawable/profile"
+                    android:title="Alpha Chupapi" />
+    </group>
+
+    <item android:title="Personalize">
+        <menu>
+            <item
+                android:id="@+id/nav_tasks"
+                android:icon="@drawable/tasks"
+                android:title="Tasks" />
+            <item
+                android:id="@+id/nav_achievements"
+                android:icon="@drawable/crown"
+                android:title="Achievements" />
+            <item
+                android:id="@+id/nav_alarm"
+                android:icon="@drawable/rectangle_4"
+                android:title="Alarm Sound" />
+            <item
+                android:id="@+id/nav_theme"
+                android:icon="@drawable/theme"
+                android:title="Themes" />
+            <item
+                android:id="@+id/nav_usage"
+                android:icon="@drawable/usageguidance"
+                android:title="Usage Guidance" />
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/about"
+                android:title="About Us" />
+        </menu>
+    </item>
+
+</menu>

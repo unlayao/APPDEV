@@ -1,10 +1,16 @@
 package com.example.tasking;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,11 +21,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.navigation.NavigationView;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
 
-public class MainTask extends AppCompatActivity {
+public class MainTask extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     // time will start in milliseconds
     private long START_TIME_IN_MS;
     private TextView tempTime;
@@ -49,14 +57,25 @@ public class MainTask extends AppCompatActivity {
     private String spinnerdata;
 
     private Button Burger;
+
+    private DrawerLayout drawer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //built in
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_task);
-        //burger
-        Burger = findViewById(R.id.burgerexample);
-        Burger.setOnClickListener(v -> openBurger());
+        //NavBar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
         //main timer
         tempTime = findViewById(R.id.editTextTime);
         //takes input from user
@@ -130,6 +149,7 @@ public class MainTask extends AppCompatActivity {
                 spinnerdata = adapterView.getItemAtPosition(i).toString();
 
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
@@ -138,13 +158,13 @@ public class MainTask extends AppCompatActivity {
 
 
     //sets time
-    private void setTime(long milliseconds){
+    private void setTime(long milliseconds) {
         START_TIME_IN_MS = milliseconds;
         resetTimer();
     }
 
     // Method for when Timer is starting
-    private void startTimer(){
+    private void startTimer() {
 
 
         mTimer = new CountDownTimer(mTimeLeftInMS, 1000) {
@@ -175,7 +195,7 @@ public class MainTask extends AppCompatActivity {
     }
 
     // When when the timer is paused
-    private void pauseTimer(){
+    private void pauseTimer() {
         isPaused = true;
         Toast.makeText(MainTask.this, "Timer Paused!", Toast.LENGTH_LONG).show();
         mTimer.cancel();
@@ -186,7 +206,7 @@ public class MainTask extends AppCompatActivity {
     }
 
     // Method when Timer will reset
-    private void resetTimer(){
+    private void resetTimer() {
         isPaused = false;
         inputTime.setEnabled(true);
         tempTime.setText("");
@@ -197,15 +217,60 @@ public class MainTask extends AppCompatActivity {
     }
 
     //Updating the timer state
-    private void updateCountDownText(){
+    private void updateCountDownText() {
         int minutes = (int) (mTimeLeftInMS / 1000) / 60;
         int seconds = (int) (mTimeLeftInMS / 1000) % 60;
-        String timeLeftFormatted = String.format(Locale.getDefault(),"%02d:%02d", minutes, seconds);
+        String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
         tempTime.setText(timeLeftFormatted);
 
     }
-    public void openBurger(){
-        Intent intent = new Intent(this, burger.class);
-        startActivity(intent);
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item){
+        switch(item.getItemId()){
+            case R.id.nav_home:
+                Intent intent = new Intent(this, MainTask.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_profile:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new AccountFragment()).commit();
+                break;
+            case R.id.nav_tasks:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new TasksFragment()).commit();
+                break;
+            case R.id.nav_achievements:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new AchievementsFragment()).commit();
+                break;
+            case R.id.nav_alarm:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new AlarmFragment()).commit();
+                break;
+            case R.id.nav_theme:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new ThemesFragment()).commit();
+                break;
+            case R.id.nav_usage:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new UsageFragment()).commit();
+                break;
+            case R.id.nav_about:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new AboutFragment()).commit();
+                break;
+        }
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

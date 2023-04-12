@@ -237,6 +237,9 @@ public class MainTask extends AppCompatActivity implements NavigationView.OnNavi
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item){
         switch(item.getItemId()){
+            case R.id.removedrawer:
+                drawer.closeDrawer(GravityCompat.START);
+                break;
             case R.id.nav_home:
                 Intent intent = new Intent(this, MainTask.class);
                 startActivity(intent);

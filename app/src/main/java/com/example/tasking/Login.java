@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,6 +26,8 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText emailText, passText;
     private Button login, signup;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +43,7 @@ public class Login extends AppCompatActivity {
         passText = (EditText) findViewById(R.id.inputPass);
         login = findViewById(R.id.btnLogin);
         signup = findViewById(R.id.btnSign);
+
 
         //login button
         login.setOnClickListener(new View.OnClickListener() {

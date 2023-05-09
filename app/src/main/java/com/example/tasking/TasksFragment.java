@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -31,8 +33,22 @@ public class TasksFragment extends Fragment {
         taskData = view.findViewById(R.id.taskdata);
         inputTask = view.findViewById(R.id.inputtask);
 
-
+        addRemove.setEnabled(true);
         inputTask.setVisibility(View.INVISIBLE);
+
+        addRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isEditing){
+                    Toast.makeText(getActivity(), "TASK ADDED", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getActivity(), "TASK REMOVED", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+       //BUTTON EDIT TO CHANGE ADD AND REMOVE
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

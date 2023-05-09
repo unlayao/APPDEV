@@ -87,6 +87,8 @@ public class MainTask extends AppCompatActivity implements NavigationView.OnNavi
         pb = findViewById(R.id.timerBar);
         //spinner for list of activities
         spinner = findViewById(R.id.spinner);
+
+        showAll();
         //Click button will start or pause
         tempTime.setVisibility(View.INVISIBLE);
 
@@ -246,6 +248,19 @@ public class MainTask extends AppCompatActivity implements NavigationView.OnNavi
         }
     }
 
+    private void hideAll(){
+        inputTime.setVisibility(View.INVISIBLE);
+        mButtonStartPause.setVisibility(View.INVISIBLE);
+        pb.setVisibility(View.INVISIBLE);
+        spinner.setVisibility(View.INVISIBLE);
+    }
+
+    private void showAll(){
+        inputTime.setVisibility(View.VISIBLE);
+        mButtonStartPause.setVisibility(View.VISIBLE);
+        pb.setVisibility(View.VISIBLE);
+        spinner.setVisibility(View.VISIBLE);
+    }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item){
         switch(item.getItemId()){
@@ -259,30 +274,37 @@ public class MainTask extends AppCompatActivity implements NavigationView.OnNavi
             case R.id.nav_profile:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new AccountFragment()).commit();
+                hideAll();
                 break;
             case R.id.nav_tasks:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new TasksFragment()).commit();
+                hideAll();
                 break;
             case R.id.nav_achievements:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new AchievementsFragment()).commit();
+                hideAll();
                 break;
             case R.id.nav_alarm:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new AlarmFragment()).commit();
+                hideAll();
                 break;
             case R.id.nav_theme:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new ThemesFragment()).commit();
+                hideAll();
                 break;
             case R.id.nav_usage:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new UsageFragment()).commit();
+                hideAll();
                 break;
             case R.id.nav_about:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new AboutFragment()).commit();
+                hideAll();
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);

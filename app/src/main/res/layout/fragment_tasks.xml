@@ -12,12 +12,13 @@
         android:layout_height="69dp"
         android:layout_marginTop="120dp"
         android:layout_marginBottom="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/remove"
-        app:layout_constraintEnd_toEndOf="@+id/spinner2"
-        app:layout_constraintStart_toStartOf="@+id/spinner2"
+        app:layout_constraintBottom_toTopOf="@+id/btnadd"
+        app:layout_constraintEnd_toEndOf="@+id/taskdata"
+        app:layout_constraintStart_toStartOf="@+id/taskdata"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputtask"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Add a task"
@@ -25,7 +26,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/taskdata"
         android:layout_width="351dp"
         android:layout_height="67dp"
         android:layout_marginStart="30dp"
@@ -37,7 +38,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/remove"
+        android:id="@+id/btnadd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="163dp"
@@ -48,11 +49,11 @@
         android:text="Remove"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner2"
+        app:layout_constraintTop_toBottomOf="@+id/taskdata"
         tools:ignore="DuplicateClickableBoundsCheck" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/addtask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="304dp"
@@ -62,7 +63,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/remove"
+        app:layout_constraintTop_toBottomOf="@+id/btnadd"
         app:srcCompat="@drawable/vectorplus"
         tools:ignore="SpeakableTextPresentCheck" />
 

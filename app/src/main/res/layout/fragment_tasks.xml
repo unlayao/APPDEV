@@ -7,6 +7,23 @@
     android:background="@color/white">
 
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="301dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/remove"
+        app:layout_constraintEnd_toEndOf="@+id/spinner2"
+        app:layout_constraintStart_toStartOf="@+id/spinner2"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Add a task"
+            tools:ignore="TouchTargetSizeCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Spinner
         android:id="@+id/spinner2"
         android:layout_width="351dp"
@@ -48,16 +65,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner2" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="301dp"
-        android:layout_height="69dp"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="306dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Add a task" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="304dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="51dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/remove"
+        app:srcCompat="@drawable/vectorplus" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

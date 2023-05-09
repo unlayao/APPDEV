@@ -4,20 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/darkgrey"
-    tools:context=".AboutFragment">
-
+    android:background="@color/white"
+    tools:ignore="ExtraText">
 
     <TextView
         android:id="@+id/textView"
-        style="@style/Widget.Material3.MaterialTimePicker.Display.HelperText"
         android:layout_width="352dp"
         android:layout_height="111dp"
         android:layout_marginBottom="500dp"
         android:shadowColor="#A57C7C"
         android:text="Welcome to Tasking, the ultimate timer app for tasks!  We understand that time is precious, and managing tasks can be overwhelming, especially with so many distractions around us. That's why we created Tasking - to help you focus on the things that matter and make the most out of your time."
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,6 +74,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hipster"
         tools:srcCompat="@tools:sample/avatars" />
+        " />
 
     <TextView
         android:id="@+id/textView3"
@@ -134,5 +132,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/hustler"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

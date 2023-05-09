@@ -56,7 +56,6 @@ public class MainTask extends AppCompatActivity implements NavigationView.OnNavi
     private Spinner spinner;
     private String spinnerdata;
 
-    private Button Burger;
 
     private DrawerLayout drawer;
 
@@ -91,10 +90,17 @@ public class MainTask extends AppCompatActivity implements NavigationView.OnNavi
         //Click button will start or pause
         tempTime.setVisibility(View.INVISIBLE);
 
+
+
         mButtonStartPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                input = inputTime.getText().toString();
+                if(isEmpty(inputTime)){
+                    Toast.makeText(MainTask.this, "Invalid Number of Minutes", Toast.LENGTH_LONG).show();
+                    return;
+                }else{
+                    input = inputTime.getText().toString();
+                }
                 long millisInput = Long.parseLong(input) * 60000;
                 if (mTimerRunning) {
                     pauseTimer();
@@ -119,7 +125,6 @@ public class MainTask extends AppCompatActivity implements NavigationView.OnNavi
                     }
                 }
                 inputTime.setEnabled(false);
-
             }
         });
 
@@ -127,16 +132,17 @@ public class MainTask extends AppCompatActivity implements NavigationView.OnNavi
         mButtonReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                inputTime.setText("");
                 resetTimer();
                 tempTime.setVisibility(View.INVISIBLE);
                 inputTime.setVisibility(View.VISIBLE);
                 spinner.setEnabled(true);
-                Toast.makeText(MainTask.this, "Timer Reset!", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainTask.this, "Timer Reset!", Toast.LENGTH_SHORT).show();
             }
         });
 
         //spinner declared values (FOR TESTING)
-        String[] activities = {"BEBE TIME", "PROGRAMMING"};
+        String[] activities = {"Html Coding", "Appdev Coding", "Social Issues Essay"};
         ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(activities));
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,
                 androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, arrayList);
@@ -156,6 +162,12 @@ public class MainTask extends AppCompatActivity implements NavigationView.OnNavi
         });
     }
 
+    private boolean isEmpty(EditText etText) {
+        if (etText.getText().toString().trim().length() > 0)
+            return false;
+
+        return true;
+    }
 
     //sets time
     private void setTime(long milliseconds) {
@@ -181,7 +193,7 @@ public class MainTask extends AppCompatActivity implements NavigationView.OnNavi
             public void onFinish() {
                 mTimerRunning = false;
                 spinner.setEnabled(true);
-                Toast.makeText(MainTask.this, "Done!", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainTask.this, "Done!", Toast.LENGTH_SHORT).show();
                 mButtonStartPause.setText("Start");
                 mButtonStartPause.setVisibility(View.INVISIBLE);
                 mButtonReset.setVisibility(View.VISIBLE);
@@ -197,7 +209,7 @@ public class MainTask extends AppCompatActivity implements NavigationView.OnNavi
     // When when the timer is paused
     private void pauseTimer() {
         isPaused = true;
-        Toast.makeText(MainTask.this, "Timer Paused!", Toast.LENGTH_LONG).show();
+        Toast.makeText(MainTask.this, "Timer Paused!", Toast.LENGTH_SHORT).show();
         mTimer.cancel();
         mTimerRunning = false;
         mButtonStartPause.setText("Start");
